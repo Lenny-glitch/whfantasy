@@ -10,32 +10,44 @@
 
   <div id="app">
 
-    <!-- Header — chrome only, no phase logic in WHF-1 -->
     <header id="topbar">
       <div>
         <div id="topbar-title">Warhammer Fantasy Battle</div>
-        <div id="topbar-sub">WHF-1 — Regiment Engine Preview</div>
+        <div id="topbar-sub">WHF-2 — Movement Phase</div>
       </div>
-      <div id="phase-tracker">Phase: —</div>
+      <div id="phase-tracker">
+        <span class="phase-tab" data-phase="movement">Movement</span>
+        <span class="phase-sep">→</span>
+        <span class="phase-tab" data-phase="magic">Magic</span>
+        <span class="phase-sep">→</span>
+        <span class="phase-tab" data-phase="shooting">Shooting</span>
+        <span class="phase-sep">→</span>
+        <span class="phase-tab" data-phase="combat">Combat</span>
+        <span class="phase-sep">→</span>
+        <span class="phase-tab" data-phase="end">End Turn</span>
+      </div>
     </header>
 
-    <!-- Board -->
     <div id="board-wrap">
       <svg id="board" width="1200" height="900" viewBox="0 0 1200 900">
         <rect id="board-bg" x="0" y="0" width="1200" height="900" />
         <g id="grid-layer"></g>
         <g id="units-layer"></g>
+        <g id="ghost-layer"></g>
+        <g id="overlay-layer"></g>
       </svg>
     </div>
 
-    <!-- Hint bar -->
+    <div id="end-phase-bar">
+      <button id="btn-end-phase">End Movement Phase →</button>
+    </div>
+
     <div id="hint-bar">
       Click unit to inspect &nbsp;·&nbsp; Right-click model to remove &nbsp;·&nbsp; Esc to deselect
     </div>
 
   </div>
 
-  <!-- Stat panel — rendered outside board-wrap so it overlays freely -->
   <div id="stat-panel">
     <div id="panel-content"></div>
   </div>
